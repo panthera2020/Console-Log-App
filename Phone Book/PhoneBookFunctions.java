@@ -107,6 +107,14 @@ public class PhoneBookFunctions {
         }
         return contactFound;
     }
+    
+    public boolean isPhoneBookEmpty(){
+        boolean isEmpty = false;
+        if(phoneBook.size() == 0){
+            isEmpty = true;
+        }
+        return isEmpty;
+    }
 }
 
 

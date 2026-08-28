@@ -179,6 +179,19 @@ public class TestPhoneBookFunctions {
         //Check
         assertArrayEquals(expectedFoundCount, actualFoundContact);
     }
+    
+    @Test
+    void TestThatWhenThePhoneBookIsEmptyItReturnsTrue(){
+        //Given
+        PhoneBookFunctions phoneBook = new PhoneBookFunctions();
+        
+        //When
+        boolean actualAnswer = phoneBook.isPhoneBookEmpty();
+        
+        boolean expectedAnswer = true;
+        //Check
+        assertEquals(expectedAnswer, actualAnswer);
+    }
 }
 
 
