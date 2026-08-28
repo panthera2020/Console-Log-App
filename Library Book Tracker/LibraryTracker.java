@@ -60,9 +60,9 @@ public class LibraryTracker{
                                 break;
                             case 3:
                                 String bookLog = """
-    TO CHECK BOOKS -> PRESS 1
-    TO TAKE BOOK -> PRESS 2
-    TO EXIT -> PRESS 0
+                                    TO CHECK BOOKS -> PRESS 1
+                                    TO TAKE BOOK -> PRESS 2
+                                    TO EXIT -> PRESS 0
                                 """;
                                 
                                 int libraryLog = -1;
