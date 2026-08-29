@@ -63,10 +63,8 @@ public class LibraryTrackerFunctions {
         String store = "";
         for(int index = 0; index < bookTitle.length; index++){
             String book = bookTitle[index];
-            //char firstCharcter = book.charAt(0);
             for(int count = 0; count < bookTitle.length; count++){
                 String otherBooks = bookTitle[count];
-                //char othersFirstCharacter = otherBooks.charAt(0);
                 if(book.compareTo(otherBooks) < 0){
                     store = bookTitle[index];
                     bookTitle[index] = bookTitle[count];

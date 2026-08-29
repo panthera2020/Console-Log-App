@@ -29,10 +29,13 @@ public class PhoneBookFunctions {
     }
     
     public boolean isNumberValid(String number){
-        boolean isValid = true;
+        boolean isValid = false;
         for(int index = 0; index < number.length(); index++){
             char digit = number.toLowerCase().charAt(index);
-            if(digit >= 'a' && digit <= 'z'){
+            if(Character.isDigit(digit)){
+                isValid = true;
+            }
+            else{
                 isValid = false;
                 break;
             }
