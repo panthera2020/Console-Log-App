@@ -168,6 +168,29 @@ public class TestStudentGradeBookFunctions {
         //Check
         assertEquals(expectedAnswer,actualAnswer);
     }
+    
+    @Test
+    void testThatWhenIRequestForAScoreAtCertainIndexItGivesMeTheScoreAtThatIndex(){
+        //Given
+        int firstScore = 20;
+        int secondScore = 90;
+        int thirdScore = 40;
+        int fourthScore = 55;
+        
+        int scorePostion = 3;
+        
+        //When
+        gradeBook.addScore(firstScore);
+        gradeBook.addScore(secondScore);
+        gradeBook.addScore(thirdScore);
+        gradeBook.addScore(fourthScore);
+        
+        int actualAnswer = gradeBook.locateScore(scorePostion);
+        int expectedAnswer = 55;
+        
+        //Check
+        assertEquals(expectedAnswer, actualAnswer);
+    }
 }
 
 

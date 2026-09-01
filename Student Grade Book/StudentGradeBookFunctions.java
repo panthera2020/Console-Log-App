@@ -67,4 +67,15 @@ public class StudentGradeBookFunctions {
         }
         return counter;
     }
+    
+    public int locateScore(int scorePostion){
+        arrangeScores();
+        int scoreFound = scores.get(scorePostion - 1);
+        return scoreFound;
+    }
 }
+
+
+
+
+
