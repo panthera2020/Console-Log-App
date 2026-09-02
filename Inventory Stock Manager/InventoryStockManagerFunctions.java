@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class InventoryStockManagerFunctions{
     private int[] inStock = new int[25];
     
@@ -20,6 +22,74 @@ public class InventoryStockManagerFunctions{
     }
     
     public void addToStock(int productIndex, int stockAdded){
-        inStock[productIndex - 1] += stockAdded;
+        if(stockAdded > 0){
+            inStock[productIndex - 1] += stockAdded;
+        }        
+    }
+    
+    public void sellProduct(int productIndex, int numberOfProducts){
+        if(inStock[productIndex -1] > numberOfProducts){
+            inStock[productIndex - 1] -= numberOfProducts;
+        }        
+    }
+    
+    public boolean isStockEmpty(int productIndex){
+        boolean isEmpty = false;
+        if(inStock[productIndex - 1] == 0){
+            isEmpty = true;
+        }
+        return isEmpty;
+    }
+    
+    public ArrayList<Object[]> displayStock(){
+        ArrayList<Object[]> productAndStock = new ArrayList<>();        
+        for(int index = 0; index < inStock.length; index++){
+            Object [] stockAndProduct = new Object[2]; 
+            stockAndProduct[0] = products[index];
+            stockAndProduct[1] = inStock[index];
+            
+            productAndStock.add(stockAndProduct);
+        }
+        
+        return productAndStock;
+    }
+    
+    public String getHighestItem(){
+        int highestInStock = inStock[0];
+        int highestInStockIndex = 0;
+        for(int index = 0; index < inStock.length; index++){
+            if(inStock[index] > highestInStock){
+                highestInStockIndex = index;
+                
+            }
+        }
+        
+        String highestItem = products[highestInStockIndex];
+        return highestItem;
+    }
+    
+    public int getTotalStock(){
+        int sumStock = 0;
+        for(int index = 0; index < inStock.length; index++){
+            sumStock += inStock[index];
+        }
+        return sumStock;
+    }
+    
+    public Object [] getItemsBelow(int minimumAmount){
+        ArrayList<String> itemsBelow = new ArrayList<>();
+        for(int index = 0; index < inStock.length; index++){
+            if(inStock[index] < minimumAmount){
+                itemsBelow.add(products[index]);
+            }
+        }
+        
+        Object [] itemsBelowAmount = itemsBelow.toArray();
+        return itemsBelowAmount;
     }
 }
+
+
+
+
+
