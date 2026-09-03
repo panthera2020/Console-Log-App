@@ -44,9 +44,10 @@ public class InventoryStockManagerFunctions{
     public ArrayList<Object[]> displayStock(){
         ArrayList<Object[]> productAndStock = new ArrayList<>();        
         for(int index = 0; index < inStock.length; index++){
-            Object [] stockAndProduct = new Object[2]; 
+            Object [] stockAndProduct = new Object[3]; 
             stockAndProduct[0] = products[index];
             stockAndProduct[1] = inStock[index];
+            stockAndProduct[2] = price[index];
             
             productAndStock.add(stockAndProduct);
         }
@@ -86,6 +87,21 @@ public class InventoryStockManagerFunctions{
         
         Object [] itemsBelowAmount = itemsBelow.toArray();
         return itemsBelowAmount;
+    }
+    
+    public boolean isNumberValid(String number){
+        boolean isValid = false;
+        for(int index = 0; index < number.length(); index++){
+            char digit = number.toLowerCase().charAt(index);
+            if(Character.isDigit(digit)){
+                isValid = true;
+            }
+            else{
+                isValid = false;
+                break;
+            }
+        }
+        return isValid;
     }
 }
 
